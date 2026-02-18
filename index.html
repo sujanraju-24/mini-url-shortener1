@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini URL Shortener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #667eea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a67d8;
+        }
+
+        .result {
+            margin-top: 20px;
+            word-wrap: break-word;
+        }
+
+        a {
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mini URL Shortener</h2>
+        <form method="POST">
+            <input type="text" name="long_url" placeholder="Enter Long URL" required>
+            <br>
+            <button type="submit">Shorten</button>
+        </form>
+
+        {% if short_url %}
+            <div class="result">
+                <p>Short URL:</p>
+                <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
